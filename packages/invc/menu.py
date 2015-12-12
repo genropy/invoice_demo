@@ -8,4 +8,5 @@ def config(root,application=None):
     invc.thpage('!!Invoice rows',table='invc.invoice_row')
     invc.thpage('!!Prodocts',table='invc.product')
     invc.thpage('!!Product types',table='invc.product_type')
+    invc.thpage('!!Postcodes',table='invc.postcode')
     invc.lookups('Lookup tables',lookup_manager='invc')

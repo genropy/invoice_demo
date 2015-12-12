@@ -8,14 +8,17 @@ class View(BaseComponent):
 
     def th_struct(self,struct):
         r = struct.view().rows()
-        r.fieldcell('code')
-        r.fieldcell('description')
+        r.fieldcell('postcode')
+        r.fieldcell('suburb')
+        r.fieldcell('state')
+        r.fieldcell('lat')
+        r.fieldcell('lon')
 
     def th_order(self):
-        return 'code'
+        return 'postcode'
 
     def th_query(self):
-        return dict(column='description', op='contains', val='')
+        return dict(column='postcode', op='contains', val='')
 
 
 
@@ -24,8 +27,11 @@ class Form(BaseComponent):
     def th_form(self, form):
         pane = form.record
         fb = pane.formbuilder(cols=2, border_spacing='4px')
-        fb.field('code')
-        fb.field('description')
+        fb.field('postcode')
+        fb.field('suburb')
+        fb.field('state')
+        fb.field('lat')
+        fb.field('lon')
 
 
     def th_options(self):
