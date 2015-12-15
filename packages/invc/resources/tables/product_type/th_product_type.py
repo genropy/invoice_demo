@@ -25,7 +25,9 @@ class Form(BaseComponent):
         fb = bc.contentPane(region='top',datapath='.record').formbuilder(cols=2, border_spacing='4px')
         fb.field('description',validate_notnull=True)
         tc = bc.tabContainer(region='center')
-        th = tc.contentPane(title='Products').plainTableHandler(relation='@products',pbl_classes=True,
+        th = tc.contentPane(title='Products').dialogTableHandler(relation='@products',
+                                                                pbl_classes=True,
+                                                                #grid_excludeCols='product_type_id',
                                                                 margin='2px')
         form.htree.relatedTableHandler(th,dropOnRoot=False,inherited=True)
         tc.contentPane(title='Product fields').fieldsGrid(margin='2px',rounded=6,border='1px solid silver')

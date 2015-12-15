@@ -20,7 +20,6 @@ class View(BaseComponent):
         return dict(column='description', op='contains', val='')
 
 
-
 class Form(BaseComponent):
     py_requires='gnrcomponents/dynamicform/dynamicform:DynamicForm'
     def th_form(self, form):
@@ -28,7 +27,7 @@ class Form(BaseComponent):
         self.productData(bc.borderContainer(region='top',datapath='.record',height='180px'))
         tc = bc.contentPane(region='center')
         self.productDynamicFields(tc.contentPane(title='Product details',datapath='.record'))
-        self.productSells(tc.contentPane(title='Sells'))
+        self.productSales(tc.contentPane(title='Sales'))
 
     def productDynamicFields(self,pane):
         pane.dynamicFieldsPane('details')
@@ -48,8 +47,8 @@ class Form(BaseComponent):
                     placeholder=True,upload_folder='site:products/images',
                     upload_filename='=#FORM.record.code')
 
-    def productSells(self,pane):
-        pane.plainTableHandler(relation='@invoice_rows',viewResource='ViewFromProducts')
+    def productSales(self,pane):
+        pane.plainTableHandler(relation='@invoice_rows',viewResource='ViewFromProduct')
 
     def th_options(self):
         return dict(dialog_height='400px', dialog_width='600px',duplicate=True)
