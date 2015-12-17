@@ -34,13 +34,13 @@ class Form(BaseComponent):
 
     def productData(self,bc):
         left = bc.roundedGroup(region='center',title='Product info').div(margin='10px',margin_right='20px')
-        fb = left.formbuilder(cols=2, border_spacing='4px',colswidth='auto',fld_width='100%',width='600px')
-        fb.field('product_type_id',tag='hdbselect',validate_notnull=True,colspan=2)
-        fb.field('code',validate_notnull=True,validate_case='U',validate_nodup=True)
+        fb = left.formbuilder(cols=2, border_spacing='4px',fld_width='100%',width='100%')
+        fb.field('code',validate_notnull=True,validate_case='U',validate_nodup=True, width='10em')
         fb.br()
+        fb.field('product_type_id',tag='hdbselect',validate_notnull=True,colspan=2)
         fb.field('description',validate_notnull=True,colspan=2)
-        fb.field('unit_price',validate_notnull=True)
-        fb.field('vat_type_code',validate_notnull=True)
+        fb.field('unit_price',validate_notnull=True, width='10em')
+        fb.field('vat_type_code',validate_notnull=True, width='10em')
         center = bc.roundedGroup(region='right',title='Image',width='130px')
         center.img(src='^.image_url',crop_height='100px',crop_width='100px',margin='5px',
                     crop_border='2px dotted silver',crop_rounded=6,edit=True,
