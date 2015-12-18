@@ -24,7 +24,7 @@ class Form(BaseComponent):
     py_requires='gnrcomponents/dynamicform/dynamicform:DynamicForm'
     def th_form(self, form):
         bc = form.center.borderContainer()
-        self.productData(bc.borderContainer(region='top',datapath='.record',height='180px'))
+        self.productData(bc.borderContainer(region='top',datapath='.record',height='200px'))
         tc = bc.contentPane(region='center')
         self.productDynamicFields(tc.contentPane(title='Product details',datapath='.record'))
         self.productSales(tc.contentPane(title='Sales'))
@@ -39,6 +39,7 @@ class Form(BaseComponent):
         fb.br()
         fb.field('product_type_id',tag='hdbselect',validate_notnull=True,colspan=2)
         fb.field('description',validate_notnull=True,colspan=2)
+        fb.field('presentation_txt', colspan=2, tag='simpletextarea', height='7ex',lbl_vertical_align='top')
         fb.field('unit_price',validate_notnull=True, width='10em')
         fb.field('vat_type_code',validate_notnull=True, width='10em')
         center = bc.roundedGroup(region='right',title='Image',width='130px')
